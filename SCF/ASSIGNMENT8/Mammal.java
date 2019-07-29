@@ -1,5 +1,5 @@
 abstract class Mammal extends Animal{
-    public static final String CATEGORY="mammal";
+    public static final String CATEGORY="Mammal";
 	public Mammal(String name,int age,float weight)
 	{
 		super(name,age,weight);

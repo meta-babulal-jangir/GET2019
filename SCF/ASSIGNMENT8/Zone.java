@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 class Zone{
 	private int count=0;
 	private String zoneName;
@@ -8,7 +9,7 @@ class Zone{
 	private boolean hasCanteen;
 	private ArrayList<Cage> cageList=new ArrayList();
 	
-	public Zone(Sting ZoneName,String category,int maxCage,boolean hasCanteen,boolean hasPark)
+	public Zone(String ZoneName,String category,int maxCage,boolean hasCanteen,boolean hasPark)
 	{
 		zoneId=++count;
 		this.zoneName=zoneName;
@@ -21,9 +22,9 @@ class Zone{
      * This method added the cage into zone 
      * If it ctreated Cage then return true otherwise false	 
 	 */
-	public boolean addCage()
+	public boolean addCage(int capacity,String animalType)
 	{   
-	    if(maxCage==cageList.size())
+	    if(MAXCAGE==cageList.size())
 			return false;
 		else
 		{	
@@ -33,8 +34,33 @@ class Zone{
 		}	
 	}
 	/**
+     * This method added the Animal to cage  
+     * If it ctreated Cage then return true otherwise false	 
+	 */
+	public boolean addAnimalToCage(Animal animal)
+	{   
+	    int noOfCage=cageList.size();
+		Cage alReadyCage=null;
+        for(int i=0;i<noOfCage;i++)
+        {
+			if(cageList.get(i).getAnimalType()==animal.getType() && cageList.get(i).getNoOfAnimal()<cageList.get(i).getCapacity())
+			{    
+		        alReadyCage=cageList.get(i);
+				break;
+            }				
+		} 			
+	    if(alReadyCage!=null)
+		{
+			alReadyCage.addAnimal(animal);
+			return true;	
+		}
+		else
+			return false;
+    }
+	/**
      * Returns Zone Id  int integer .
 	 */
+	 
 	public int zoneId()
 	{
 		return zoneId;
