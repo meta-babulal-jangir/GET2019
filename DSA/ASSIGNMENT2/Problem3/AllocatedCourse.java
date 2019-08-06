@@ -3,11 +3,13 @@ import java.util.Map;
 import java.util.HashMap;
 import java.io.*;
 import jxl.*;
+import jxl.write.*;
 public class AllocatedCourse{
     Map<String,Integer>  programListWithCapacity=null;
     UseQueue studentQueue=null;
     Workbook workbook=null;
     Sheet sheet=null;
+	int noOfStudent=-1;
     public Map<String,Integer> courseDataToMap(String courseFileName)
     {   
         try{
@@ -65,26 +67,24 @@ public class AllocatedCourse{
         workbook.close();
         return studentList;
     }
-    public UseQueue studentDataToList(String studentFileName)
+    public void studentDataToList(String studentFileName)
     {   
             ArrayList<Student> studentList=getStudentList(studentFileName);
-            int noOfStudent=studentList.size();
+            noOfStudent=studentList.size();
             studentQueue=new UseQueue(noOfStudent);
             for(int i=0;i<noOfStudent;i++)
-            {
+            {   
                  studentQueue.addItem(studentList.get(i));
             }              
-            
-        return studentQueue;
     }
     public void getStudentFinalList(String finalList,int coulmn)
     {    
-         WritableWorkbook workbook;
-         WritableSheet sheet;
-         Lable label=null;
+         WritableWorkbook workbook=null;
+         WritableSheet sheet=null;
+         Label label=null;
          Student student=null;
-         try{
-            workbook=Workbook.createWorkbook(new File(courseFileName));
+         try{ 
+            workbook=Workbook.createWorkbook(new File(finalList));
             sheet=workbook.createSheet("first Sheet",0);
             label=new Label(0,0,"Student Name");
             sheet.addCell(label);
@@ -92,36 +92,49 @@ public class AllocatedCourse{
             sheet.addCell(label);
             ArrayList studentCourse=null;
             int lengthOfStudentCourse=-1;
-            Map.Entry entry=null;
-            for(int i=1;i<=numberOfRow;i++)
+			boolean flgTofill=true; 
+            for(int i=1;i<=noOfStudent;i++)
             {    
                  student=(Student)studentQueue.deleteItem();
                  for(int j=0;j<coulmn;j++)
-                 {
-                     sheet.addCell(new Label(j,i,student.getStudentName()));
-                     studentCourse=student.getStudentCourseList();
-                     lengthOfStudentCourse=studentCourse.size();
+                 {   
+			         if(j==0)
+                     {						 
+                         sheet.addCell(new Label(j,i,student.getStudentName()));
+                         studentCourse=student.getStudentCourseList();
+                         lengthOfStudentCourse=studentCourse.size();
+					 }
+                     else					 
                      if(j>0)
-                     {                    
+                     {   System.out.println((String)studentCourse.get(0));
+                              System.out.println((programListWithCapacity.get(studentCourse.get(0))));	                 
                          for(int k=0;k<lengthOfStudentCourse;k++)
                          {    
-                              if(programListWithCapacity.containsKey(studentCourse.get(k))&& programListWithCapacity.getValue(studentCourse.get(k))>0)
-                              {    
-                                   entry=(Map.Entry)
-                                   sheet.addCell(new Label(j,i,student.getStudentName()));
-                                   
+					          //System.out.println(programListWithCapacity.containsKey((String)studentCourse.get(k)));
+                              //System.out.println((programListWithCapacity.get(studentCourse.get(k))));							  
+                              if(programListWithCapacity.containsKey((String)studentCourse.get(k))&& (int)(programListWithCapacity.get(studentCourse.get(k)))>0)
+                              {   
+                                   sheet.addCell(new Label(j,i,(String)studentCourse.get(k)));
+                                   programListWithCapacity.replace((String)studentCourse.get(k), (int)(programListWithCapacity.get(studentCourse.get(k)))-1);
+								   flgTofill=false;
+								   break;
                               }    
                          }
+						 System.out.println(programListWithCapacity);
+						 if(flgTofill)
+							 sheet.addCell(new Label(j,i,"Not Allocated"));
                      }
+					
                  }
             }
-            
+			workbook.write();
+			workbook.close();
         }
         catch(Exception e)
         {
             System.out.println(e.getMessage());
-        }        
-        workbook.close();
+        }
+        
     }
     
 }

@@ -4,8 +4,7 @@ public class CheckAllocatedCourse{
         AllocatedCourse obj=new AllocatedCourse();
         System.out.println(obj.courseDataToMap("College_Courses.xls"));
         //System.out.println(obj.getStudentList("Student_Details.xls"));
-        Student s=(Student)(obj.studentDataToList("Student_Details.xls").deleteItem());
-        System.out.println(s.getStudentName());
-        //System.out.println(obj.getStudentFinalList("Student_Final_List.xls"));
+        obj.studentDataToList("Student_Details.xls");
+        obj.getStudentFinalList("Student_Final_List.xls",2);
     }
 }
