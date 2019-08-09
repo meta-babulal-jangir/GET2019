@@ -58,6 +58,7 @@ public class EvaluateExpression{
 		      String postfix = "";
 		      UseStack stackForPostfix = new UseStack();
         int sizeOfInfixSplit=infixExpresionSplit.length;
+        boolean flgEmpty=false;
 		      for (int index = 0; index < sizeOfInfixSplit; index++) 
         {
 			         if ("(".equals(infixExpresionSplit[index])) 
@@ -67,15 +68,14 @@ public class EvaluateExpression{
             else 
             if (map.containsKey(infixExpresionSplit[index])) 
             {   
-                if(stackForPostfix.isEmpty())
-                    stackForPostfix.push(infixExpresionSplit[index]);
-                else   
-				                while (map.get((String)stackForPostfix.top()) > map.get(infixExpresionSplit[index])) 
+				                while (flgEmpty && map.get((String)stackForPostfix.top()) > map.get(infixExpresionSplit[index])) 
                     {
 					                   postfix += stackForPostfix.top() + " ";
 					                   stackForPostfix.pop();
 				                }
-				            
+           
+				                stackForPostfix.push(infixExpresionSplit[index]);
+                    flgEmpty=true;
 			         } 
             else 
             if (")".equals(infixExpresionSplit[index])) 
@@ -92,7 +92,7 @@ public class EvaluateExpression{
 		      }
 		      while (!stackForPostfix.isEmpty()) 
         {
-			         postfix += stackForPostfix.top();
+			         postfix += stackForPostfix.top()+" ";
 			         stackForPostfix.pop();
 		      }
 		      return postfix;
