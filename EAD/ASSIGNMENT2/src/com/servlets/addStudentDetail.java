@@ -25,10 +25,12 @@ public class addStudentDetail extends HttpServlet {
 		student.setEmail(req.getParameter("email_id"));
 		student.setStudentClass(Integer.parseInt(req.getParameter("class")));
 		student.setAge(Integer.parseInt(req.getParameter("age")));
-		boolean added=DatabaseHelper.addStudent(student);
-		if(added)
+		int added=DatabaseHelper.addStudent(student);
+		if(added==1)
 			out.println("Added Sucessfully");
-		else
-			out.println("Not Added");
+		else if(added==1062)
+			out.println("Email Id Already exists");
+			else
+				out.println("Some Error Accured");
 	}
 }

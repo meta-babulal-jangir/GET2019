@@ -17,9 +17,9 @@ public class DatabaseHelper {
 	/**
 	 * Method to add student data into database
 	 * @param student
-	 * @return true if student data added successfully otherwise false
+	 * @return 1 if student data added successfully otherwise MYSQL ERROR code 
 	 */
-	public static boolean addStudent(Student student) {
+	public static int addStudent(Student student) {
 
 		try {
 			Connection con = SQLConnection.getConnection("school");
@@ -34,14 +34,10 @@ public class DatabaseHelper {
 			preStatement.setInt(6, student.getAge());
 			int rowAffected = preStatement.executeUpdate();
 			con.close();
-			if (rowAffected != 0)
-				return true;
-			else
-				return false;
-
+			return rowAffected;
 		} catch (SQLException sqlException) {
-			sqlException.printStackTrace();
-			return false;
+			//sqlException.printStackTrace();
+			return sqlException.getErrorCode();
 		}
 
 	}
@@ -81,9 +77,9 @@ public class DatabaseHelper {
 	/**
 	 * Method to update student data into database
 	 * @param student
-	 * @return true if student data updated successfully otherwise false 
+	 * @return 1 if student data updated successfully otherwise MYSQL ERROR code 
 	 */
-	public static boolean updateStudent(Student student) {
+	public static int updateStudent(Student student) {
 
 		try {
 			Connection con = SQLConnection.getConnection("school");
@@ -99,13 +95,10 @@ public class DatabaseHelper {
 			preStatement.setInt(7, student.getStudentId());
 			int rowUpdated = preStatement.executeUpdate();
 			con.close();
-			if (rowUpdated != 0)
-				return true;
-			else
-				return false;
+			return rowUpdated;
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			return false;
+			return sqlException.getErrorCode();
 		}
 	}
 	
