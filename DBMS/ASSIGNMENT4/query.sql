@@ -75,9 +75,9 @@ BEGIN
     END IF;
     SELECT orderedProducts.order_id , 
     orderedProducts.product_id ,
-    status.status ,
-    orders.order_date 
-    FROM orderedProducts INNER JOIN status ON orderedProducts.order_id = status.order_id AND orderedProducts.product_id = status.product_id
+    orderedProducts.status ,
+    orders.order_date
+    FROM orderedProducts 
     LEFT JOIN orders ON orderedProducts.order_id = orders.order_id
     WHERE orders.order_date >= start_date AND orders.order_date <= end_date
     ORDER BY (order_id);
