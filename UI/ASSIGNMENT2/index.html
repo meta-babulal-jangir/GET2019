@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="collepseStyle.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+       <li> <a href="#employee_form">
+            Add Employee 
+        </a>
+        </li> 
+        <li><a href="#vehicle_form">
+             Add Vehicle 
+        </a>
+        </li>
+        <li><a href="#pricing">
+             Pricing
+        </a>
+        </li> 
+        <li><a href="#feedback_form">
+             Give Feedback 
+        </a>
+        </li>
+    </ul>    
+</nav>
+
+<img class="logo" src="logo-metacube.png" />
+<h1>Metacube Parking</h1>
+<button type="button" class="collapsible">Employee Form</button>
+<div class="content">
+        <div class="divToCenter" id="employee_form">
+        <form name="RegistrationForm">
+                <h2>
+                    Registration Form
+                </h2>
+                <table >
+                    <tr>
+                        <td><label  for="name">
+                                Full name :
+                            </label></td>
+                        <td><input type="input" name="name" id="name"  placeholder="Name" pattern="[A-Za-z]+{2,}" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender">
+                                Gender :
+                            </label></td>
+                        <td><select name="gender" id="gender" required>
+                                <option selected>---Select One Please---</option>
+                                <option>Female</option>
+                                <option>Male</option>
+                                <option>Other</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">
+                                Email Id :
+                            </label></td>
+                        <td><input type="email" name="email" id="email" placeholder="Email Address" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">
+                                Password :
+                            </label></td>
+                        <td><input type="password" type="password" name="password" id="password" placeholder="Password"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="conform-password">
+                                Confirm Password :
+                            </label></td>
+                        <td><input type="password" name="confirmPassword" id="conform-password" placeholder="Re-enter Password" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="contact">
+                                Contact Number :
+                            </label></td>
+                        <td><input type="tel" name="contact" id="contact" placeholder="Contact number" pattern="^\d{10}$"
+                                required /></td>
+                    </tr>
+                </table>
+                <br> <input type="submit" value="Register" />
+            </form>
+            </div>
+  
+</div>
+<button type="button" class="collapsible">Vehicle Form</button>
+<div class="content" >
+        <div class="divToCenter" id="vehicle_form">
+        <form name="VehicleDetailForm">
+                <h2>
+                    Vehicle Details Form
+                </h2>
+                <table >
+                    <tr>
+                        <td><label for="vehicle-name">
+                                Name :
+                            </label></td>
+                        <td><input type="input" name="vehicleName" id="vehicle-name" placeholder="Vehicle Name" pattern="[A-z0-9À-ž\s]){2,}" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="vehicle-type">
+                                Vehicle Type :
+                            </label></td>
+                        <td><select name="vehType" id="vehicle-type" required>
+                                <option selected>---Select One Please---</option>
+                                <option>Cylce</option>
+                                <option>Motorlcyle</option>
+                                <option>Four Wheelers</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="vehicle-number">
+                                Vehicle Number :
+                            </label></td>
+                        <td><input type="input" name="vehNum" id="vehicle-number" placeholder="RJ XX XXXX"
+                                pattern="^[A-Z]{2} [0-9]{2} [A-Z]{2} [0-9]{4}$" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="vehicle-identification">
+                                Identification :
+                            </label></td>
+                        <td><textarea name="identification" id="vehicle-identification" required> </textarea> </td>
+                    </tr>
+                </table>
+                <br> <input type="submit" value="Register" />
+            </form>
+            </div>
+        </div>
+<button type="button" class="collapsible">Feedback Form</button>
+<div class="content">
+        <div class="divToCenter" id="feedback_form">
+        <form name="FeedbackForm">
+                <h2>Get In Touch</h2>
+                <table>
+                    <tr>
+                        <td><label for="employee-name">Name :</font></label></td>
+                        <td><input type="input" name="name" id="employee-name" placeholder="Employee Name" pattern="[A-Za-z]" required/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email :</label></td>
+                        <td><input type="email" name="mail" id="email" placeholder="Email" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Subject :</label></td>
+                        <td><input type="input" name="subject" placeholder="Write Subject" required/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="msg">Message :</label></td>
+                        <td><textarea name="msg" id="msg"></textarea></td>
+                    </tr>
+                </table>
+                <br> <input type="submit" value="Send Email" />
+            </form>
+            </div>
+        </div>
+<button type="button" class="collapsible">Pricing</button>
+<div class="content" id="pricing">
+            <div class="divToCenter"  id="cycle">
+                <h2>Cycle</h2>
+                <span><em>$5 Daily</em></span> <br>
+                <span><em>$100 Monthly</em></span> <br>
+                <span><em>$500 Yearly</em></span><br><br>
+                <input type="button" value="Purchase Now" />
+            </div>
+            <div class="divToCenter" id="motorcycle">
+                <h2>MotorCycle</h2>
+                <span><em>$10 Daily</em></span> <br>
+                <span><em>$200 Monthly</em></span> <br>
+                <span><em>$1000 Yearly</em></span><br><br>
+                <input type="button" value="Purchase Now" />
+            </div>
+            <div class="divToCenter" id="fourwheeler">
+                <h2>Four Wheelers</h2>
+                <span><em>$20 Daily</em></span> <br>
+                <span><em>$500 Monthly</em></span> <br>
+                <span><em>$3500 Yearly</em></span><br><br>
+                <input type="button" value="Purchase Now" />
+            </div>
+        </div>
+<script src="collepseJs.js"></script>
+</body>
+</html>
