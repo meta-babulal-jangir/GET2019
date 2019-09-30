@@ -1,0 +1,200 @@
+#header-logo img{
+    display: block;
+    margin-top: 12%;
+}
+img{
+    display: inline-block;
+}
+
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    background: #648cff;
+}
+#header div{
+    margin-top: 10px;
+    
+}
+
+#cover{
+    
+    display :flex;
+    justify-content: space-between;
+    padding: 100px 0px 200px 0px;
+    background-image: url("images/homebg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+*{
+    padding :0;
+    margin: 0;
+    font-family: Arial;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    
+  }
+  
+  
+  li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  h1{
+    text-align: center;
+    font-size: 50px;
+    color:white;
+    font-family: Arial;
+    text-align: left;
+  }
+
+  #cover-button{
+    margin-top: 10%;  
+    display :flex;
+    justify-content:flex-start;
+
+  }
+  #cover-button a{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  #download-button{
+    background-color:#FD6941  
+  }
+  
+  #feature-button{
+    margin-left: 3%;
+    background-color:#4568C6;
+  }
+
+  .left-box{
+    margin-left: 15%;
+  }
+  .right-box{
+    margin-right: 15%;
+  }
+
+  .feature-main-block {
+    margin-top: 7%;
+    display :flex;
+    justify-content: space-between;
+  }
+
+
+
+  .headingTitle h2 {
+    color:#648cff;
+    display :flex;
+    justify-content: center;
+  }
+  .headingTitle p {
+    color:rgb(163, 173, 136);
+    display :flex;
+    justify-content: center;
+  }
+  body {
+    background-image: url("images/bodybg.png");
+  }
+
+  .featureBlock{
+    
+    display :flex;
+    justify-content: space-around;
+  }
+  .featureBlock div{
+    margin-left: 5%;
+    margin-right: 5%;
+    
+  }
+
+  #featureImage{
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-around;
+    
+    
+  }
+
+  .featureMainHighlited{
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #review{
+    margin-top: 7%;
+  }
+
+  .reviewHighlited{
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .closeQuote{
+    margin-left: 90%;
+  }
+  .width-box{
+    width: 30%;
+  }
+
+  #download{
+    background-color: #648cff;
+    color: white;
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .top-margin{
+    margin-top: 7%;
+  }
+  #download p{
+    margin-top: 3%;
+  }
+
+  #footer{
+    padding :0;
+      margin: 0;
+    background: #383A53;
+    
+  } 
+  #footer-navigation{
+    display: flex;
+    
+  }
+  #footer-logo{
+    margin-top:45%;
+  }
+  .footer-arrange {
+    margin-top: 3%;
+    margin-left: 15%;
+    display: flex;
+    justify-content:center;
+  }
+
+  #footer p {
+    
+    line-height: 100px;
+    vertical-align: middle;
+    color:rgb(163, 173, 136);
+    display :flex;
+    justify-content: center;
+  }
+  
