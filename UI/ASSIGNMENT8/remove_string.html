@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Remove Consucating String</title>
+    <script>
+        
+        function removeConsecutiveRepeatingString(){
+            console.log("Method Called");
+            var inputString=document.getElementById("input-string").value;
+            var outputString=inputString;
+            var flg=true;
+            // loop iterate until consecutive repeating string is not  
+            while(flg){
+                var lenghtOfRepeatingString=1;
+                var indexOfMatchedCharacter=-1;
+                for(var i=0;i<outputString.length-1;i++){
+                    if(outputString.charAt(i)==outputString.charAt(i+1)){
+                        if(indexOfMatchedCharacter==-1){
+                            indexOfMatchedCharacter=i;
+                        }
+                        lenghtOfRepeatingString++;    
+                    }
+                    else if(indexOfMatchedCharacter!=-1){
+                        break;
+                    }               
+                }
+                
+                console.log(indexOfMatchedCharacter);
+                console.log(lenghtOfRepeatingString);
+                if(indexOfMatchedCharacter==-1){
+                    flg=false;
+                }else{
+                    outputString=((outputString.substring(0, indexOfMatchedCharacter)).concat(outputString.substring(indexOfMatchedCharacter+lenghtOfRepeatingString,outputString.length )));
+                }
+                console.log(outputString);
+            }
+            document.getElementById("output-string").value=outputString;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type=input id="input-string" placeholder="Enter a String"/>
+        <input type=input id="output-string" placeholder="Output  String will be here"/>
+        <input type="button" onclick="removeConsecutiveRepeatingString()" value="Click Here to Show Output">
+        
+    </form>
+</body>
+</html>
