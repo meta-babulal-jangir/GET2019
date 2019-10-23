@@ -1,0 +1,26 @@
+
+
+<div  class="row">
+        <div class="col-sm-3">
+                <select class=" form-control" style="width: 200px" (ngModel)="selectedDevice" (change)="onChange($event.target.value)">
+                        <option value="all">All Category</option>
+                        <option value="bread">Bread</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="fruit">Fruit</option>
+                        <option value="seasonable">Seasoings and spices</option>
+                        <option value="vegitable">Vegetables</option>
+                </select> 
+        </div>
+        <div class="col-sm-9 ">
+                
+                        <div  *ngFor="let item of items;let i=index;" id="arange-item">
+                                
+                                        <app-list-item [item]="item"></app-list-item>
+                                
+                                
+                        </div>
+                
+        </div>
+</div>
+      
+      
